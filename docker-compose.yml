@@ -1,0 +1,42 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: postgres18_practice
+    restart: always
+    environment:
+      POSTGRES_DB: practice_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "54321:5432"
+    volumes:
+      - postgres_data_tests:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
+      - ./datasets:/datasets
+    networks:
+      - postgres_network
+  
+  postgres_udemy:
+    image: postgres:16
+    container_name: postgres_udemy
+    restart: always
+    environment:
+      POSTGRES_DB: udemy_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "54322:5432"
+    volumes:
+      - postgres_data_udemy:/var/lib/postgresql/data
+    networks:
+      - postgres_network
+
+volumes:
+  postgres_data_tests:
+  postgres_data_udemy:
+
+networks:
+  postgres_network:
+    driver: bridge
