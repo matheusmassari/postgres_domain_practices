@@ -1,0 +1,20 @@
+-- Q10: Returned Item Reporting
+--
+-- Negócio: os 20 clientes com maior perda de receita por itens devolvidos
+-- em um trimestre específico.
+--
+-- Conceitos: JOIN de 4 tabelas, GROUP BY, ORDER BY, LIMIT
+-- Dificuldade: ★★☆☆☆
+--
+-- Parâmetro: DATE = '1993-10-01'
+--
+-- Colunas esperadas:
+--   c_custkey, c_name,
+--   revenue   (SUM de l_extendedprice * (1 - l_discount) onde l_returnflag = 'R'),
+--   c_acctbal, n_name, c_address, c_phone, c_comment
+-- Filtros:
+--   o_orderdate >= '1993-10-01'
+--   o_orderdate < '1994-01-01'
+--   l_returnflag = 'R'
+-- Ordem: revenue DESC
+-- Limite: 20

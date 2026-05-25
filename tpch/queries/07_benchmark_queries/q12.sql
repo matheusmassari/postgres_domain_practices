@@ -1,0 +1,21 @@
+-- Q12: Shipping Modes and Order Priority
+--
+-- Negócio: quantos pedidos de alta e baixa prioridade foram enviados
+-- por cada modo de envio em um período.
+--
+-- Conceitos: JOIN, CASE dentro de SUM, GROUP BY, ORDER BY
+-- Dificuldade: ★★☆☆☆
+--
+-- Parâmetros: SHIPMODE1 = 'MAIL', SHIPMODE2 = 'SHIP', DATE = '1994-01-01'
+--
+-- Colunas esperadas:
+--   l_shipmode,
+--   high_line_count  (pedidos com prioridade '1-URGENT' ou '2-HIGH'),
+--   low_line_count   (demais prioridades)
+-- Filtros:
+--   l_shipmode IN ('MAIL', 'SHIP')
+--   l_commitdate < l_receiptdate
+--   l_shipdate < l_commitdate
+--   l_receiptdate >= '1994-01-01'
+--   l_receiptdate < '1995-01-01'
+-- Ordem: l_shipmode

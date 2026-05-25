@@ -1,0 +1,17 @@
+-- Q06: Forecasting Revenue Change
+--
+-- Negócio: quanto de receita foi perdido em descontos em um período específico?
+-- Simula o impacto de eliminar descontos em uma faixa.
+--
+-- Conceitos: SUM com múltiplos filtros, query simples de uma tabela
+-- Dificuldade: ★☆☆☆☆
+--
+-- Parâmetros: DATE = '1994-01-01', DISCOUNT = 0.06, QUANTITY = 24
+--
+-- Colunas esperadas:
+--   revenue (SUM de l_extendedprice * l_discount)
+-- Filtros:
+--   l_shipdate >= '1994-01-01'
+--   l_shipdate < '1995-01-01'
+--   l_discount BETWEEN 0.05 AND 0.07
+--   l_quantity < 24

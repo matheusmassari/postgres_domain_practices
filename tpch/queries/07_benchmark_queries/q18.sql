@@ -1,0 +1,20 @@
+-- Q18: Large Volume Customer
+--
+-- Negócio: clientes que fizeram pedidos com quantidade total acima de 300.
+--
+-- Conceitos: IN com subquery de GROUP BY + HAVING, JOIN, ORDER BY, LIMIT
+-- Dificuldade: ★★★☆☆
+--
+-- Parâmetro: QUANTITY = 300
+--
+-- Colunas esperadas:
+--   c_name, c_custkey, o_orderkey, o_orderdate, o_totalprice,
+--   sum_qty (SUM de l_quantity)
+-- Filtro:
+--   o_orderkey IN (
+--     SELECT l_orderkey FROM lineitem
+--     GROUP BY l_orderkey
+--     HAVING SUM(l_quantity) > 300
+--   )
+-- Ordem: o_totalprice DESC, o_orderdate
+-- Limite: 100

@@ -1,0 +1,23 @@
+-- Q19: Discounted Revenue
+--
+-- Negócio: receita de itens que atendem a combinações específicas de
+-- marca, container e faixa de quantidade — em três modos de envio.
+--
+-- Conceitos: WHERE complexo com múltiplos OR e AND, BETWEEN
+-- Dificuldade: ★★☆☆☆
+--
+-- Colunas esperadas:
+--   revenue (SUM de l_extendedprice * (1 - l_discount))
+--
+-- Filtro (três condições unidas por OR):
+--   (p_brand='Brand#12' AND p_container IN ('SM CASE','SM BOX','SM PACK','SM PKG')
+--    AND l_quantity BETWEEN 1 AND 11 AND p_size BETWEEN 1 AND 5)
+--   OR
+--   (p_brand='Brand#23' AND p_container IN ('MED BAG','MED BOX','MED PKG','MED PACK')
+--    AND l_quantity BETWEEN 10 AND 20 AND p_size BETWEEN 1 AND 10)
+--   OR
+--   (p_brand='Brand#34' AND p_container IN ('LG CASE','LG BOX','LG PACK','LG PKG')
+--    AND l_quantity BETWEEN 20 AND 30 AND p_size BETWEEN 1 AND 15)
+--
+--   l_shipmode IN ('AIR', 'AIR REG')
+--   l_shipinstruct = 'DELIVER IN PERSON'

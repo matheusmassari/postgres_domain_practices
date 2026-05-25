@@ -1,0 +1,22 @@
+-- Q15: Top Supplier
+--
+-- Negócio: o fornecedor com maior contribuição de receita em um trimestre.
+--
+-- Conceitos: CTE (ou view), JOIN, MAX em subquery, ORDER BY
+-- Dificuldade: ★★★☆☆
+--
+-- Parâmetro: DATE = '1996-01-01'
+--
+-- Estrutura sugerida:
+--   CTE revenue: calcula receita por fornecedor no trimestre
+--   Query: join com supplier, filtra WHERE receita = MAX(receita)
+--
+-- Colunas esperadas:
+--   s_suppkey, s_name, s_address, s_phone,
+--   total_revenue (SUM de l_extendedprice * (1 - l_discount))
+-- Filtros na CTE:
+--   l_shipdate >= '1996-01-01'
+--   l_shipdate < '1996-04-01'
+-- Filtro na query final:
+--   total_revenue = (SELECT MAX(total_revenue) FROM revenue)
+-- Ordem: s_suppkey

@@ -1,0 +1,23 @@
+-- Q20: Potential Part Promotion
+--
+-- Negócio: fornecedores canadenses com estoque excessivo de peças de madeira
+-- comparado ao que foi enviado — candidatos para promoção.
+--
+-- Conceitos: IN aninhado (IN dentro de IN), subquery correlacionada, ORDER BY
+-- Dificuldade: ★★★★★
+--
+-- Parâmetros: COLOR = 'forest', NATION = 'CANADA', DATE = '1994-01-01'
+--
+-- Colunas esperadas:
+--   s_name, s_address
+-- Filtros:
+--   s_nationkey = n_nationkey AND n_name = 'CANADA'
+--   s_suppkey IN (
+--     SELECT ps_suppkey FROM partsupp WHERE
+--       ps_partkey IN (SELECT p_partkey FROM part WHERE p_name LIKE 'forest%')
+--       AND ps_availqty > (
+--         subquery: 0.5 * SUM(l_quantity) para o mesmo partkey/suppkey
+--         em shipdate entre 1994 e 1995
+--       )
+--   )
+-- Ordem: s_name

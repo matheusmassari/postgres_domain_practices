@@ -1,0 +1,22 @@
+-- Q21: Suppliers Who Kept Orders Waiting
+--
+-- Negócio: fornecedores da Arábia Saudita que causaram atrasos em pedidos
+-- urgentes — fornecedores com itens atrasados onde outros fornecedores
+-- do mesmo pedido não causaram atraso.
+--
+-- Conceitos: EXISTS + NOT EXISTS combinados, JOIN, GROUP BY, ORDER BY, LIMIT
+-- Dificuldade: ★★★★★
+--
+-- Parâmetro: NATION = 'SAUDI ARABIA'
+--
+-- Colunas esperadas:
+--   s_name,
+--   numwait (COUNT(*))
+-- Filtros:
+--   s_nationkey = n_nationkey AND n_name = 'SAUDI ARABIA'
+--   o_orderstatus = 'F'
+--   l_receiptdate > l_commitdate  (entrega atrasada)
+--   EXISTS (outro item do mesmo pedido com fornecedor diferente)
+--   NOT EXISTS (outro item do mesmo pedido com fornecedor diferente E também atrasado)
+-- Ordem: numwait DESC, s_name
+-- Limite: 100

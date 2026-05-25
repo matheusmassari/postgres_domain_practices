@@ -1,0 +1,19 @@
+-- Q22: Global Sales Opportunity
+--
+-- Negócio: clientes potenciais — que nunca fizeram pedido mas têm saldo
+-- acima da média — agrupados por código de país (prefixo do telefone).
+--
+-- Conceitos: CASE, SUBSTRING para extrair prefixo, NOT EXISTS, subquery com AVG, GROUP BY
+-- Dificuldade: ★★★★★
+--
+-- Parâmetros: I1..I7 = '13','31','23','29','30','18','17' (prefixos de telefone)
+--
+-- Colunas esperadas:
+--   cntrycode  (SUBSTRING(c_phone FROM 1 FOR 2)),
+--   numcust    (COUNT(*)),
+--   totacctbal (SUM(c_acctbal))
+-- Filtros:
+--   cntrycode IN ('13','31','23','29','30','18','17')
+--   c_acctbal > (AVG de c_acctbal onde acctbal > 0 e mesmo cntrycode)
+--   NOT EXISTS (SELECT 1 FROM orders WHERE o_custkey = c_custkey)
+-- Ordem: cntrycode

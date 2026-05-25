@@ -1,0 +1,17 @@
+-- Q09: Product Type Profit Measure
+--
+-- Negócio: lucro por nação e por ano para peças de um tipo específico.
+-- Lucro = receita bruta - custo de fornecimento * quantidade.
+--
+-- Conceitos: JOIN de 6 tabelas, LIKE, EXTRACT, GROUP BY, ORDER BY
+-- Dificuldade: ★★★★☆
+--
+-- Parâmetro: COLOR = 'green' (p_name LIKE '%green%')
+--
+-- Colunas esperadas:
+--   nation   (n_name),
+--   o_year   (EXTRACT year de o_orderdate),
+--   amount   (SUM de l_extendedprice*(1-l_discount) - ps_supplycost*l_quantity)
+-- Filtro:
+--   p_name LIKE '%green%'
+-- Ordem: nation, o_year DESC

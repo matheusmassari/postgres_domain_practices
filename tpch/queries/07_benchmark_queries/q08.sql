@@ -1,0 +1,18 @@
+-- Q08: National Market Share
+--
+-- Negócio: participação de mercado de uma nação específica no mercado
+-- de um tipo de peça em uma região, ao longo de dois anos.
+--
+-- Conceitos: CASE dentro de SUM, JOIN de 7 tabelas, subquery ou CTE, GROUP BY
+-- Dificuldade: ★★★★★
+--
+-- Parâmetros: NATION = 'BRAZIL', REGION = 'AMERICA', TYPE = 'ECONOMY ANODIZED STEEL'
+--
+-- Colunas esperadas:
+--   o_year  (EXTRACT year de o_orderdate),
+--   mkt_share = SUM(CASE WHEN n_name = 'BRAZIL' THEN receita ELSE 0 END) / SUM(receita)
+-- Filtros:
+--   r_name = 'AMERICA'
+--   o_orderdate BETWEEN '1995-01-01' AND '1996-12-31'
+--   p_type = 'ECONOMY ANODIZED STEEL'
+-- Ordem: o_year

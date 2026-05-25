@@ -1,0 +1,19 @@
+-- Q16: Parts/Supplier Relationship
+--
+-- Negócio: quantos fornecedores distintos oferecem peças de tamanhos
+-- específicos que não são de um fabricante específico.
+--
+-- Conceitos: NOT IN com subquery, GROUP BY, HAVING, ORDER BY
+-- Dificuldade: ★★★☆☆
+--
+-- Parâmetros: BRAND = 'Brand#45', TYPE = 'MEDIUM POLISHED%', SIZES = (49,14,23,45,19,3,36,9)
+--
+-- Colunas esperadas:
+--   p_brand, p_type, p_size,
+--   supplier_cnt (COUNT DISTINCT de ps_suppkey)
+-- Filtros:
+--   p_brand <> 'Brand#45'
+--   p_type NOT LIKE 'MEDIUM POLISHED%'
+--   p_size IN (49, 14, 23, 45, 19, 3, 36, 9)
+--   ps_suppkey NOT IN (SELECT s_suppkey FROM supplier WHERE s_comment LIKE '%Customer%Complaints%')
+-- Ordem: supplier_cnt DESC, p_brand, p_type, p_size

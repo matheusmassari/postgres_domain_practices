@@ -1,0 +1,21 @@
+-- Q03: Shipping Priority
+--
+-- Negócio: os 10 pedidos não entregues com maior receita potencial,
+-- para clientes de um segmento específico feitos antes de uma data.
+--
+-- Conceitos: JOIN de 3 tabelas, GROUP BY, ORDER BY, LIMIT
+-- Dificuldade: ★★☆☆☆
+--
+-- Parâmetros: SEGMENT = 'BUILDING', DATE = '1995-03-15'
+--
+-- Colunas esperadas:
+--   l_orderkey,
+--   revenue  (SUM de l_extendedprice * (1 - l_discount)),
+--   o_orderdate,
+--   o_shippriority
+-- Filtros:
+--   c_mktsegment = 'BUILDING'
+--   o_orderdate < '1995-03-15'
+--   l_shipdate > '1995-03-15'
+-- Ordem: revenue DESC, o_orderdate
+-- Limite: 10

@@ -1,0 +1,20 @@
+-- Q02: Minimum Cost Supplier
+--
+-- Negócio: para cada peça de um tipo e tamanho específicos disponível na Europa,
+-- encontrar o fornecedor que oferece o menor custo.
+--
+-- Conceitos: subquery correlacionada com MIN, múltiplos JOINs, ORDER BY, LIMIT
+-- Dificuldade: ★★★★☆
+--
+-- Parâmetros: SIZE = 15, TYPE = '%BRASS', REGION = 'EUROPE'
+--
+-- Colunas esperadas:
+--   s_acctbal, s_name, n_name, p_partkey, p_mfgr,
+--   s_address, s_phone, s_comment
+-- Filtros:
+--   p_size = 15
+--   p_type LIKE '%BRASS'
+--   r_name = 'EUROPE'
+--   ps_supplycost = (subquery: MIN de ps_supplycost para a mesma peça na Europa)
+-- Ordem: s_acctbal DESC, n_name, s_name, p_partkey
+-- Limite: 100

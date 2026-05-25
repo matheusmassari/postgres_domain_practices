@@ -1,0 +1,19 @@
+-- Q11: Important Stock Identification
+--
+-- Negócio: peças críticas em estoque de uma nação — aquelas que representam
+-- mais de 0.01% do valor total do estoque dessa nação.
+--
+-- Conceitos: GROUP BY, HAVING com subquery escalar, ORDER BY
+-- Dificuldade: ★★★☆☆
+--
+-- Parâmetro: NATION = 'GERMANY', FRACTION = 0.0001
+--
+-- Colunas esperadas:
+--   ps_partkey,
+--   value (SUM de ps_supplycost * ps_availqty)
+-- Filtros:
+--   s_nationkey = n_nationkey
+--   n_name = 'GERMANY'
+-- HAVING:
+--   value > (subquery: SUM total da nação * 0.0001)
+-- Ordem: value DESC

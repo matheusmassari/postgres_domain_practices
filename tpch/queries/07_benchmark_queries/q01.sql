@@ -1,0 +1,24 @@
+-- Q01: Pricing Summary Report
+--
+-- Negócio: relatório de precificação por status de retorno e status de linha.
+-- Mostra receitas, quantidades e médias para itens enviados até 90 dias antes
+-- de uma data de referência.
+--
+-- Conceitos: GROUP BY, múltiplas agregações, ORDER BY
+-- Dificuldade: ★☆☆☆☆
+--
+-- Parâmetro: DELTA = 90 (dias antes de 1998-12-01)
+--
+-- Escreva a query abaixo:
+-- Colunas esperadas:
+--   l_returnflag, l_linestatus,
+--   sum_qty          (SUM de l_quantity),
+--   sum_base_price   (SUM de l_extendedprice),
+--   sum_disc_price   (SUM de receita bruta),
+--   sum_charge       (SUM de receita líquida),
+--   avg_qty          (AVG de l_quantity),
+--   avg_price        (AVG de l_extendedprice),
+--   avg_disc         (AVG de l_discount),
+--   count_order      (COUNT(*))
+-- Filtro: l_shipdate <= '1998-09-02'
+-- Ordem: l_returnflag, l_linestatus

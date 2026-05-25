@@ -1,0 +1,16 @@
+-- Q13: Customer Distribution
+--
+-- Negócio: distribuição de clientes por número de pedidos,
+-- excluindo pedidos com comentários que indicam problemas especiais.
+--
+-- Conceitos: LEFT JOIN, GROUP BY duplo (contar grupos), ORDER BY
+-- Dificuldade: ★★★☆☆
+--
+-- Parâmetro: WORD1 = 'special', WORD2 = 'requests'
+--
+-- Colunas esperadas:
+--   c_count   (número de pedidos do cliente),
+--   custdist  (número de clientes com esse c_count)
+-- Filtro no JOIN (não no WHERE — para preservar clientes sem pedidos):
+--   o_comment NOT LIKE '%special%requests%'
+-- Ordem: custdist DESC, c_count DESC

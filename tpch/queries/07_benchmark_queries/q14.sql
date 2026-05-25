@@ -1,0 +1,19 @@
+-- Q14: Promotion Effect
+--
+-- Negócio: percentual da receita de um mês que veio de itens promocionais
+-- (peças cujo tipo começa com 'PROMO').
+--
+-- Conceitos: CASE dentro de SUM, divisão de agregações, filtro de data
+-- Dificuldade: ★★☆☆☆
+--
+-- Parâmetro: DATE = '1995-09-01'
+--
+-- Colunas esperadas:
+--   promo_revenue = 100.00 * SUM(CASE WHEN p_type LIKE 'PROMO%'
+--                                     THEN l_extendedprice*(1-l_discount)
+--                                     ELSE 0 END)
+--                  / SUM(l_extendedprice*(1-l_discount))
+-- Filtros:
+--   l_shipdate >= '1995-09-01'
+--   l_shipdate < '1995-10-01'
+--   l_partkey = p_partkey

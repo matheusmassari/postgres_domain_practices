@@ -1,0 +1,19 @@
+-- Q04: Order Priority Checking
+--
+-- Negócio: quantos pedidos de cada prioridade existem em um trimestre,
+-- onde ao menos um item foi entregue com atraso (commitdate < receiptdate).
+--
+-- Conceitos: EXISTS com subquery correlacionada, GROUP BY, ORDER BY
+-- Dificuldade: ★★★☆☆
+--
+-- Parâmetros: DATE = '1993-07-01' (trimestre: 1993-Q3)
+--
+-- Colunas esperadas:
+--   o_orderpriority,
+--   order_count (COUNT(*))
+-- Filtros:
+--   o_orderdate >= '1993-07-01'
+--   o_orderdate < '1993-10-01'
+--   EXISTS (SELECT 1 FROM lineitem WHERE l_orderkey = o_orderkey
+--           AND l_commitdate < l_receiptdate)
+-- Ordem: o_orderpriority

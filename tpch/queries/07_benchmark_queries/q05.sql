@@ -1,0 +1,19 @@
+-- Q05: Local Supplier Volume
+--
+-- Negócio: receita gerada por fornecedores locais (mesma nação do cliente)
+-- em uma região específica durante um ano.
+--
+-- Conceitos: JOIN de 6 tabelas, GROUP BY, ORDER BY, filtro de data
+-- Dificuldade: ★★★☆☆
+--
+-- Parâmetros: REGION = 'ASIA', DATE = '1994-01-01'
+--
+-- Colunas esperadas:
+--   n_name,
+--   revenue (SUM de l_extendedprice * (1 - l_discount))
+-- Filtros:
+--   r_name = 'ASIA'
+--   o_orderdate >= '1994-01-01'
+--   o_orderdate < '1995-01-01'
+--   c_nationkey = s_nationkey  (cliente e fornecedor da mesma nação)
+-- Ordem: revenue DESC

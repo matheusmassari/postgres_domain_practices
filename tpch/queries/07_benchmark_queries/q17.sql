@@ -1,0 +1,16 @@
+-- Q17: Small-Quantity-Order Revenue
+--
+-- Negócio: receita perdida por aceitar pedidos de quantidades abaixo de 20%
+-- da quantidade média de uma peça específica.
+--
+-- Conceitos: subquery correlacionada com AVG, JOIN
+-- Dificuldade: ★★★★☆
+--
+-- Parâmetros: BRAND = 'Brand#23', CONTAINER = 'MED BOX'
+--
+-- Colunas esperadas:
+--   avg_yearly (SUM(l_extendedprice) / 7.0)
+-- Filtros:
+--   p_brand = 'Brand#23'
+--   p_container = 'MED BOX'
+--   l_quantity < (subquery: 0.2 * AVG(l_quantity) para o mesmo p_partkey)

@@ -1,0 +1,20 @@
+-- Q07: Volume Shipping
+--
+-- Negócio: volume de negócio entre duas nações específicas em dois anos,
+-- para analisar relações comerciais bilaterais.
+--
+-- Conceitos: JOIN com nation duas vezes (aliases), CASE para extrair ano, GROUP BY
+-- Dificuldade: ★★★★☆
+--
+-- Parâmetros: NATION1 = 'FRANCE', NATION2 = 'GERMANY'
+--
+-- Colunas esperadas:
+--   supp_nation  (nação do fornecedor),
+--   cust_nation  (nação do cliente),
+--   l_year       (EXTRACT year de l_shipdate),
+--   revenue      (SUM de l_extendedprice * (1 - l_discount))
+-- Filtros:
+--   (supp_nation = 'FRANCE' AND cust_nation = 'GERMANY')
+--   OR (supp_nation = 'GERMANY' AND cust_nation = 'FRANCE')
+--   l_shipdate BETWEEN '1995-01-01' AND '1996-12-31'
+-- Ordem: supp_nation, cust_nation, l_year
